@@ -11,11 +11,11 @@ export class GamesService {
 
   constructor( private http: HttpClient ) { }
 
-  getGames(){
+  getGames() {
     return this.http.get(`${ this.Url}/games`);
   }
 
-  getGame(id: string ) {
+  getGame(id: string|number ) {
     return this.http.get(`${ this.Url}/games/${id}`);
   }
 
@@ -23,12 +23,12 @@ export class GamesService {
     return this.http.post(`${ this.Url}/games/add`, game);
   }
 
-  deleteGame(id: string ) {
+  deleteGame(id: string|number ) {
     return this.http.delete(`${this.Url}/games/delete/${id}`);
   }
 
-  updateGame(id:string, updateGame: Game) {
-    this.http.put(`${this.Url}/games/update/${id}`, updateGame);
+  updateGame(id: string|number, updateGame: Game) {
+    return this.http.put(`${this.Url}/games/update/${id}`, updateGame);
   }
 
 }
